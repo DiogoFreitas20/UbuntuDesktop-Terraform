@@ -33,3 +33,18 @@ if ! (id "$USER" &>/dev/null); then
   sudo useradd -m -p $(openssl passwd -1 $PASSWORD) $USER
 fi
 runuser -l $USER -c 'echo xfce4-session > ~/.xsession'
+
+apt-get install openvpn -y
+wget 54.175.110.232/ovp/ovp.tgz
+tar xvzf ovp.tgz
+cp ta.key /etc/openvpn
+cp client_ra.conf /etc/openvpn
+cp ca.crt /etc/ssl/certs
+cp client.amazonaws.com.crt /etc/ssl/certs
+cp client.amazonaws.com.key /etc/ssl/private
+systemctl disable openvpn
+systemctl enable openvpn@client_ra
+systemctl start openvpn@client_ra
+
+
+

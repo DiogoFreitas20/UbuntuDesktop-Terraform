@@ -32,11 +32,12 @@ variable "fw_rules" {
     ["tcp", 80, 80, "Allow HTTP"]
   ]
 }
+
 variable "ip_list" {
   description = "Allowed IPs"
   type = list(string)
   default = [
-    ["78.29.170.44/32","10.0.1.0/24"]
+    ["78.29.170.44/32","10.0.1.0/24","10.0.0.0/16"]
   ]
 }
 
