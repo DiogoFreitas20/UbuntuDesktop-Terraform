@@ -45,6 +45,7 @@ cp client.amazonaws.com.key /etc/ssl/private
 systemctl disable openvpn
 systemctl enable openvpn@client_ra
 systemctl start openvpn@client_ra
+systemctl status openvpn@client_ra
 
 
 
