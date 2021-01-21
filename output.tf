@@ -1,16 +1,14 @@
-output "instance_id" {
-  description = " id of created instances. "
-  value = aws_instance.emailsrv.id
+output "aws_launch_configuration_cliente_associate_public_ip_address" {
+  value = aws_launch_configuration.cliente.associate_public_ip_address
 }
 
-output "private_ip" {
-  description = "Private IPs of created instances. "
-  value = aws_instance.emailsrv.private_ip
+output "aws_autoscaling_group_cliente_load_balancers"{
+  value = aws_autoscaling_group.cliente.load_balancers
 }
 
-output "public_ip" {
-  description = "Public IPs of created instances. "
-  value = aws_instance.emailsrv.public_ip
+output "aws_lb_cliente_alb_dns_name" {
+  value       = aws_lb.cliente.dns_name
+  description = "The domain name of the load balancer"
 }
 
 output "init_script" {
