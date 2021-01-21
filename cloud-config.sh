@@ -22,15 +22,15 @@ sudo apt install -y xrdp chromium-browser filezilla
 sudo adduser xrdp ssl-cert
 sudo hostnamectl set-hostname client
 sudo wget 54.175.110.232/ovp.tgz
-sudo tar xvzf.gz
+sudo tar xvzf ovp.tgz
 sudo apt update && apt upgrade -y
 sudo apt-get install openvpn
 sudo cd
-sudo mv ovp.tgz/client_ra.conf /etc/openvpn/
-sudo mv ovp.tgz/ta.key /etc/openvpn/
-sudo mv ovp.tgz/ca.crt /etc/ssl/certs/
-sudo mv ovp.tgz/client.amazonaws.com.crt /etc/ssl/certs/
-sudo mv ovp.tgz/client.amazonaws.com.key /etc/ssl/private/
+sudo mv client_ra.conf /etc/openvpn/
+sudo mv ta.key /etc/openvpn/
+sudo mv ca.crt /etc/ssl/certs/
+sudo mv client.amazonaws.com.crt /etc/ssl/certs/
+sudo mv client.amazonaws.com.key /etc/ssl/private/
 sudo systemctl disable openvpn
 sudo systemctl enable openvpn@client_ra
 sudo systemctl status openvpn@client_ra.service
