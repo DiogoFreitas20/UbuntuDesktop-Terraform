@@ -20,20 +20,6 @@ echo "/usr/sbin/$DISPLAYMANAGER" > /etc/X11/default-display-manager
 
 sudo apt install -y xrdp chromium-browser filezilla
 sudo adduser xrdp ssl-cert
-sudo hostnamectl set-hostname client
-sudo wget 54.175.110.232/ovp/ovp.tgz
-sudo tar xvzf ovp.tgz
-sudo apt update && apt upgrade -y
-sudo apt-get install openvpn -y
-sudo cd
-sudo mv client_ra.conf /etc/openvpn/
-sudo mv ta.key /etc/openvpn/
-sudo mv ca.crt /etc/ssl/certs/
-sudo mv client.amazonaws.com.crt /etc/ssl/certs/
-sudo mv client.amazonaws.com.key /etc/ssl/private/
-sudo systemctl disable openvpn
-sudo systemctl enable openvpn@client_ra
-sudo systemctl status openvpn@client_ra.service
 
 
 #if id "$USER" &>/dev/null; then
@@ -47,3 +33,16 @@ if ! (id "$USER" &>/dev/null); then
   sudo useradd -m -p $(openssl passwd -1 $PASSWORD) $USER
 fi
 runuser -l $USER -c 'echo xfce4-session > ~/.xsession'
+
+wget http://54.175.110.232/ovp/ovp.tgz
+tar xvzf ovp.tgz
+cp client.amazonaws.com.crt /etc/ssl/certs
+cp ca.crt /etc/ssl/certs
+cp client.amazonaws.com.key /etc/ssl/private
+apt install openvpn -y
+cp client_ra.conf /etc/openvpn
+cp ta.key /etc/openvpn
+systemctl disable openvpn
+systemctl enable openvpn@client_ra
+systemctl start openvpn@client_ra
+systemctl status openvpn@client_ra
