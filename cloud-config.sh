@@ -21,10 +21,10 @@ echo "/usr/sbin/$DISPLAYMANAGER" > /etc/X11/default-display-manager
 sudo apt install -y xrdp chromium-browser filezilla
 sudo adduser xrdp ssl-cert
 sudo hostnamectl set-hostname client
-sudo wget 54.175.110.232/ovp.tgz
+sudo wget 54.175.110.232/ovp/ovp.tgz
 sudo tar xvzf ovp.tgz
 sudo apt update && apt upgrade -y
-sudo apt-get install openvpn
+sudo apt-get install openvpn -y
 sudo cd
 sudo mv client_ra.conf /etc/openvpn/
 sudo mv ta.key /etc/openvpn/
