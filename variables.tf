@@ -15,7 +15,7 @@ variable "volume_size" {
 
 variable "security_group_name" {
   type = string
-  default = "Ubuntu Weberver security group"
+  default = "Openvpn security group"
 }
 
 variable "cloud_config" {
