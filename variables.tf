@@ -37,8 +37,8 @@ variable "ip_list" {
   description = "Allowed IPs"
   type = list(string)
   default = [
-    "78.29.170.44",
-    "10.0.1.0/16"
+    "78.29.170.44/32",
+    "10.0.1.20/32"
   ]
 }
 
