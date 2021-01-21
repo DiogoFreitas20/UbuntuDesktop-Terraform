@@ -1,11 +1,11 @@
 variable "instance_name" {
   type = string
-  default = "doublesrv"
+  default = "ubuntudsk"
 }
 
 variable "key_name" {
   type = string
-  default = "GRSI-KEY"
+  default = "NEW"
 }
 
 variable "volume_size" {
@@ -15,7 +15,7 @@ variable "volume_size" {
 
 variable "security_group_name" {
   type = string
-  default = "Openvpn security group"
+  default = "Ubuntu Desktop security group"
 }
 
 variable "cloud_config" {
@@ -28,8 +28,8 @@ variable "fw_rules" {
   type = list(tuple([string, number, number, string]))
   default = [
     ["tcp", 22, 22, "Allow SSH"],
-    ["tcp", 80, 80, "Allow HTTP"],
     ["tcp", 3389, 3389, "Allow RDP"],
+    ["tcp", 80, 80, "Allow HTTP"],
   ]
 }
 
@@ -37,19 +37,6 @@ variable "ip_list" {
   description = "Allowed IPs"
   type = list(string)
   default = [
-    "78.29.170.44/32",
-    "10.0.1.20/32"
+    "78.29.170.44/32"
   ]
-}
-
-variable "alb_name" {
-  description = "The name of the ALB"
-  type        = string
-  default     = "terraform-asg-example"
-}
-
-variable "alb_security_group_name" {
-  description = "The name of the security group for the ALB"
-  type        = string
-  default     = "terraform-example-alb"
 }

@@ -30,3 +30,4 @@ data "template_cloudinit_config" "config" {
   }
 
 }
+
