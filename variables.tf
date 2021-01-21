@@ -5,7 +5,7 @@ variable "instance_name" {
 
 variable "key_name" {
   type = string
-  default = "NEW"
+  default = "GRSI-KEY"
 }
 
 variable "volume_size" {
